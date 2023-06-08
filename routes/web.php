@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\homeController;
 use App\Http\Controllers\landingController;
+use App\Http\Controllers\profileController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,12 +17,8 @@ use App\Http\Controllers\landingController;
 */
 Route::get('/landing',[landingController::class,'index'])->name('landing');
 Route::get('/home',[homeController::class,'index'])->name('home');
+Route::get('/profile',[profileController::class,'index'])->name('profile');
 
-
-Route::get('/profile', function () {
-
-    return view('profile');
-})->name('profile');
 Route::get('/events', function () {
     return view('events');
 })->name('events');
