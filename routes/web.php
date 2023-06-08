@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\contactController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\homeController;
@@ -18,12 +19,15 @@ use App\Http\Controllers\newsController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/landing',[landingController::class,'index'])->name('landing');
+Route::get('/',[landingController::class,'index'])->name('landing');
 Route::get('/home',[homeController::class,'index'])->name('home');
 Route::get('/profile',[profileController::class,'index'])->name('profile');
-Route::get('/events',[eventsController::class,'index'])->name('events');
+Route::get('/events',[eventController::class,'index'])->name('events');
 
 Route::get('/news',[newsController::class,'index'])->name('news');
 
 Route::get('/contact',[contactController::class,'index'])->name('contact');
 Route::get('contact/submit',[contactController::class,'submit'])->name('contact.submit');
+
+Route::get('/login',[AuthController::class,'index'])->name('login');
+Route::post('/login',[AuthController::class,'login'])->name('login.submit');
