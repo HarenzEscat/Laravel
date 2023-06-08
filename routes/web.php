@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\homeController;
+use App\Http\Controllers\landingController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,14 +13,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/landing',[landingController::class,'index'])->name('landing');
+Route::get('/home',[homeController::class,'index'])->name('home');
 
-Route::get('/', function () {
-    return view('landing');
-})->name('landing');
 
-Route::get('/home', function () {
-    return view('home');
-})->name('home');
 Route::get('/profile', function () {
 
     return view('profile');
